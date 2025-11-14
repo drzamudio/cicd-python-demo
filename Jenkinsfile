@@ -4,14 +4,13 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main',
-                    url: 'https://github.com/drzamudio/cicd-python-demo.git'
+                checkout scm
             }
         }
 
         stage('Run Tests') {
             steps {
-                sh 'py -3 -m unittest'
+                sh 'python3 -m unittest'
             }
         }
     }
